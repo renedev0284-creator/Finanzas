@@ -715,6 +715,15 @@ img {
   gap: var(--spacing-lg);
 }
 
+.featured-posts-grid .post-preview {
+  grid-template-columns: 1fr;
+}
+
+.featured-posts-grid .post-preview-image {
+  width: 100%;
+  height: 200px;
+}
+
 /* Lists */
 ul, ol {
   margin-left: var(--spacing-lg);
