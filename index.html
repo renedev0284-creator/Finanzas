@@ -1,0 +1,54 @@
+---
+layout: default
+title: Blog de Finanzas - Aprende sobre Inversión y Mercados
+description: Blog profesional sobre finanzas personales, inversión en acciones, análisis de mercado y estrategias financieras. Educación para inversores principiantes y avanzados.
+permalink: /
+---
+
+<section class="hero">
+  <h1>Domina tus Finanzas</h1>
+  <p>Análisis profesional, educación sobre inversión y estrategias para optimizar tu patrimonio</p>
+  <div class="hero-buttons">
+    <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">Explorar Artículos</a>
+    <a href="{{ '/sobre-mi/' | relative_url }}" class="btn btn-secondary">Conóceme</a>
+  </div>
+</section>
+
+<section class="featured-posts">
+  <h2>Artículos Recientes</h2>
+
+  {% if site.posts.size > 0 %}
+    <div class="featured-posts-grid">
+      {% for post in site.posts limit: 3 %}
+        {% include post-excerpt.html post=post %}
+      {% endfor %}
+    </div>
+
+    <div class="text-center" style="margin-top: var(--spacing-lg);">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">Ver todos los artículos →</a>
+    </div>
+  {% else %}
+    <p class="text-center text-muted">No hay artículos aún. Vuelve pronto.</p>
+  {% endif %}
+</section>
+
+<section style="margin-top: var(--spacing-xl); padding: var(--spacing-lg); background-color: var(--border-color); border-radius: 8px;">
+  <h2 style="margin-top: 0;">¿Por qué leer este blog?</h2>
+  <ul style="margin-left: var(--spacing-lg);">
+    <li><strong>Análisis profundo:</strong> Información basada en datos y análisis técnico profesional</li>
+    <li><strong>Educación accesible:</strong> Explicaciones claras para principiantes y temas avanzados</li>
+    <li><strong>Actualizado regularmente:</strong> Contenido nuevo sobre mercados y finanzas</li>
+    <li><strong>Práctico:</strong> Estrategias y consejos que puedes aplicar inmediatamente</li>
+    <li><strong>Comunidad:</strong> Únete a lectores que mejoran sus finanzas</li>
+  </ul>
+</section>
+
+<section style="margin-top: var(--spacing-xl); text-align: center;">
+  <h2>Suscríbete para recibir actualizaciones</h2>
+  <p>Recibe notificaciones de nuevos artículos directamente en tu correo</p>
+  <form style="max-width: 400px; margin: 0 auto;">
+    <input type="email" placeholder="Tu correo electrónico" required>
+    <button type="submit" style="margin-top: var(--spacing-sm);">Suscribirse al Newsletter</button>
+  </form>
+  <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: var(--spacing-sm);">No recibirás spam. Puedes desuscribirse en cualquier momento.</p>
+</section>

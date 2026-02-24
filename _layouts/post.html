@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="headline">{{ page.title | escape }}</h1>
+
+    <div class="post-meta">
+      <div class="post-info">
+        <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date: "%d de %B de %Y" | replace: 'January', 'enero' | replace: 'February', 'febrero' | replace: 'March', 'marzo' | replace: 'April', 'abril' | replace: 'May', 'mayo' | replace: 'June', 'junio' | replace: 'July', 'julio' | replace: 'August', 'agosto' | replace: 'September', 'septiembre' | replace: 'October', 'octubre' | replace: 'November', 'noviembre' | replace: 'December', 'diciembre' }}
+        </time>
+
+        <span class="post-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <span itemprop="name">{{ page.author | default: site.author.name }}</span>
+        </span>
+      </div>
+
+      {% if page.categories %}
+        <div class="post-categories">
+          {% for category in page.categories %}
+            <a href="{{ '/blog/' | relative_url }}" class="post-category">{{ category }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if page.image and page.image != '' %}
+    <div class="post-image">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="lazy" itemprop="image">
+    </div>
+  {% endif %}
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+    <div class="post-tags">
+      <h3 class="tags-title">Etiquetas:</h3>
+      <div class="tags-list">
+        {% for tag in page.tags %}
+          <a href="{{ '/blog/' | relative_url }}" class="tag">#{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  <footer class="post-footer">
+    <div class="post-footer-content">
+      <div class="author-box">
+        <h4>Sobre el autor</h4>
+        <p>{{ site.author.name }} - Especialista en finanzas y análisis de mercado. Educador en inversión y estrategias financieras.</p>
+      </div>
+
+      <div class="share-buttons">
+        <h4>Comparte este artículo:</h4>
+        <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title }}" class="share-btn twitter" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" class="share-btn linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" class="share-btn facebook" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </footer>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title }}",
+  "description": "{{ page.excerpt | strip_html | truncate: 160 }}",
+  "image": "{{ page.image | absolute_url }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: site.author.name }}",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>

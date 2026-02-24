@@ -1,0 +1,47 @@
+---
+layout: page
+title: Blog de Finanzas
+description: Todos los artículos sobre finanzas, inversión, mercado y análisis económico
+permalink: /blog/
+---
+
+<p class="text-muted">Explora todos nuestros artículos sobre finanzas, inversión y análisis de mercado.</p>
+
+{% if site.posts.size > 0 %}
+  <div class="posts-container">
+    {% for post in site.posts %}
+      {% include post-excerpt.html post=post %}
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+    <nav class="pagination">
+      {% if paginator.previous_page %}
+        {% if paginator.previous_page == 1 %}
+          <a href="{{ '/' | relative_url }}">← Anterior</a>
+        {% else %}
+          <a href="{{ '/blog/pagina/' | append: paginator.previous_page | relative_url }}">← Anterior</a>
+        {% endif %}
+      {% endif %}
+
+      {% for page_num in (1..paginator.total_pages) %}
+        {% if page_num == paginator.page %}
+          <span class="current">{{ page_num }}</span>
+        {% else %}
+          {% if page_num == 1 %}
+            <a href="{{ '/blog/' | relative_url }}">{{ page_num }}</a>
+          {% else %}
+            <a href="{{ '/blog/pagina/' | append: page_num | relative_url }}">{{ page_num }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <a href="{{ '/blog/pagina/' | append: paginator.next_page | relative_url }}">Siguiente →</a>
+      {% endif %}
+    </nav>
+  {% endif %}
+{% else %}
+  <p class="text-center text-muted">No hay artículos aún. Vuelve pronto.</p>
+{% endif %}

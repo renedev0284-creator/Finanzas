@@ -1,0 +1,44 @@
+<footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre el Blog</h3>
+        <p>{{ site.description }}</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Categorías Populares</h3>
+        <ul class="footer-links">
+          <li><a href="{{ '/blog/' | relative_url }}">Inversión</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">Trading</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">Finanzas Personales</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">Criptomonedas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Sígueme</h3>
+        <div class="social-links">
+          {% if site.author.twitter %}
+            <a href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener" title="Twitter">
+              <svg class="social-icon" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 9-1 9-5.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            </a>
+          {% endif %}
+          {% if site.author.linkedin %}
+            <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener" title="LinkedIn">
+              <svg class="social-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/></svg>
+            </a>
+          {% endif %}
+          <a href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener" title="RSS Feed">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M4 11a9 9 0 019 9M4 4a13 13 0 0113 13m0 0a1 1 0 11-2 0 11 11 0 00-11-11m0 0a1 1 0 110 2 11 11 0 0111 11m0 0a1 1 0 11 0 2 9 9 0 010-18"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {% now 'utc' | date: '%Y' %} <strong>{{ site.title }}</strong> por {{ site.author.name }}. Todos los derechos reservados.</p>
+      <p class="footer-disclaimer">Disclaimer: El contenido de este blog es de carácter educativo y no debe ser considerado como asesoramiento financiero profesional.</p>
+    </div>
+  </div>
+</footer>

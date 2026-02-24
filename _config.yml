@@ -1,0 +1,113 @@
+# Blog de Finanzas - Configuración de Jekyll
+
+# Site settings
+title: Blog de Finanzas
+description: >
+  Blog profesional de análisis financiero, educación sobre inversiones
+  y estrategias de finanzas personales. Aprende sobre mercados,
+  criptomonedas, acciones y más.
+baseurl: ""
+url: "https://renemoya.github.io"
+author:
+  name: René Moya
+  email: tu-email@example.com
+  twitter: tu-twitter
+  linkedin: tu-linkedin
+
+# SEO
+lang: es
+locale: es_ES
+timezone: America/Mexico_City
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate-v2
+
+# Markdown processor
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  parse_block_html: true
+
+# Pagination
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: '/pagina/:num/'
+  title: ' - Página :num'
+  head_prefix: ' - Página'
+  trail:
+    before: 1
+    after: 1
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:collection/:title/
+
+# Front matter defaults
+defaults:
+  # Post defaults
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: René Moya
+      image: /assets/images/default.jpg
+      permalink: /blog/:title/
+  # Page defaults
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+
+# Exclude from processing
+exclude:
+  - .git
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .jekyll-cache
+  - .sass-cache
+  - "*.config.js"
+  - ".DS_Store"
+  - "README.md"
+
+# Include
+include:
+  - ".well-known"
+
+# Convert
+convert: markdown
+post_url_format: pretty
+
+# Sass settings
+sass:
+  style: compressed
+  sourcemap: never
+
+# Feed settings
+feed:
+  collections:
+    posts:
+      path: /feed.xml
+
+# Minima theme specific
+minima:
+  social_links:
+    twitter: tu-twitter
+    linkedin: tu-linkedin
+    github: renemoya

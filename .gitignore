@@ -1,0 +1,44 @@
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+*.gemspec
+
+# Ruby
+.ruby-version
+.bundle/
+vendor/bundle/
+vendor/cache/
+vendor/gems/
+vendor/ruby/
+Gemfile.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# System
+Thumbs.db
+.sass-cache/
+*.log
+*.tmp
+
+# Temporary
+tmp/
+temp/
+
+# Environment
+.env
+.env.local
+
+# Build output
+.jekyll-assets-cache/
+
+# OSX
+.AppleDouble
+.LSOverride
+*.rej
