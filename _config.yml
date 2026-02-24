@@ -6,12 +6,12 @@ description: >
   Blog profesional de análisis financiero, educación sobre inversiones
   y estrategias de finanzas personales. Aprende sobre mercados,
   criptomonedas, acciones y más.
-baseurl: "/Finanzas"
-url: "https://renemoya.com"
+baseurl: "/"
+url: "https://finanzasreales.com"
 author:
   name: René Moya
-  email: tu-email@example.com
-  twitter: tu-twitter
+  email: renedev0284@gmail.com
+  twitter: @rened_ev
   linkedin: tu-linkedin
 
 # SEO
