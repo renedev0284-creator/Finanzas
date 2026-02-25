@@ -70,6 +70,31 @@
     }
 
     /* ----------------------------------------------------------
+       FAQ ACORDEÓN
+    ---------------------------------------------------------- */
+    document.querySelectorAll('.faq-question').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item   = btn.closest('.faq-item');
+        var answer = item.querySelector('.faq-answer');
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+        // Cierra todos los demás
+        document.querySelectorAll('.faq-item').forEach(function (other) {
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-answer').classList.remove('is-open');
+          other.classList.remove('is-open');
+        });
+
+        // Abre el actual si estaba cerrado
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          answer.classList.add('is-open');
+          item.classList.add('is-open');
+        }
+      });
+    });
+
+    /* ----------------------------------------------------------
        BANNER DE COOKIES
     ---------------------------------------------------------- */
     var COOKIE_KEY = 'fr-cookies';
