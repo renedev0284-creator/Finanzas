@@ -70,6 +70,33 @@
     }
 
     /* ----------------------------------------------------------
+       BANNER DE COOKIES
+    ---------------------------------------------------------- */
+    var COOKIE_KEY = 'fr-cookies';
+    var cookieBanner = document.getElementById('cookie-banner');
+
+    if (cookieBanner && !localStorage.getItem(COOKIE_KEY)) {
+      cookieBanner.classList.add('is-visible');
+    }
+
+    var btnAccept  = document.getElementById('cookie-accept');
+    var btnDecline = document.getElementById('cookie-decline');
+
+    if (btnAccept) {
+      btnAccept.addEventListener('click', function () {
+        localStorage.setItem(COOKIE_KEY, 'accepted');
+        cookieBanner.classList.remove('is-visible');
+      });
+    }
+
+    if (btnDecline) {
+      btnDecline.addEventListener('click', function () {
+        localStorage.setItem(COOKIE_KEY, 'declined');
+        cookieBanner.classList.remove('is-visible');
+      });
+    }
+
+    /* ----------------------------------------------------------
        COPIAR ENLACE
     ---------------------------------------------------------- */
     var copyBtn = document.getElementById('copy-url');

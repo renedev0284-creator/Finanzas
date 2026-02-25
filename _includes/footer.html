@@ -41,6 +41,8 @@
           <li><a href="{{ '/sobre-mi/' | relative_url }}">Sobre mí</a></li>
           <li><a href="{{ '/contacto/' | relative_url }}">Contacto</a></li>
           <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
+          <li><a href="{{ '/privacidad/' | relative_url }}">Privacidad</a></li>
+          <li><a href="{{ '/cookies/' | relative_url }}">Cookies</a></li>
         </ul>
       </div>
 
@@ -48,7 +50,7 @@
 
     <div class="footer-bottom">
       <p class="footer-copy">&copy; {{ site.time | date: '%Y' }} Finanzas Reales &middot; {{ site.author.name }}</p>
-      <p class="footer-disclaimer">Contenido educativo. No es asesoramiento financiero profesional.</p>
+      <p class="footer-disclaimer">Contenido educativo. No es asesoramiento financiero profesional. &middot; <a href="{{ '/privacidad/' | relative_url }}" style="color:inherit;opacity:.6;">Privacidad</a> &middot; <a href="{{ '/cookies/' | relative_url }}" style="color:inherit;opacity:.6;">Cookies</a></p>
     </div>
   </div>
 </footer>
