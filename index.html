@@ -5,17 +5,51 @@ description: Blog sobre finanzas personales, inversión y mercados. Escrito por 
 permalink: /
 ---
 
-<!-- HERO CENTRADO -->
+<!-- HERO -->
 <section class="home-hero">
-  <p class="home-hero__eyebrow">Nuevo artículo cada semana</p>
-  <h1 class="home-hero__title">Finanzas escritas<br>con honestidad</h1>
-  <p class="home-hero__sub">Investigo, aprendo y escribo sobre dinero, inversión y mercados.<br>Sin fórmulas mágicas ni promesas de hacerte rico rápido.</p>
+  <div class="home-hero__glow" aria-hidden="true"></div>
 
-  <form class="home-hero__form" action="#" method="POST">
-    <input type="email" name="email" placeholder="tu@correo.com" required aria-label="Tu correo electrónico">
-    <button type="submit" class="btn btn-primary">Suscribirme gratis</button>
-  </form>
-  <p class="home-hero__disclaimer">Sin spam. Solo un email cuando publique algo nuevo.</p>
+  <div class="home-hero__content">
+
+    <div class="home-hero__badge">
+      <span class="hero-badge-dot" aria-hidden="true"></span>
+      Nueva publicación cada semana · Guatemala
+    </div>
+
+    <h1 class="home-hero__title">
+      Entiende tu dinero.
+      <span class="hero-accent">Toma mejores decisiones.</span>
+    </h1>
+
+    <p class="home-hero__sub">
+      Analizo tarjetas de crédito, inversiones, impuestos y mercados desde Guatemala —
+      con datos reales, fuentes verificadas y cero promesas vacías.
+    </p>
+
+    <form class="home-hero__form" action="#" method="POST">
+      <div class="hero-form-pill">
+        <input type="email" name="email" placeholder="tu@correo.com" required aria-label="Tu correo electrónico">
+        <button type="submit">Unirme gratis →</button>
+      </div>
+    </form>
+    <p class="home-hero__disclaimer">Sin spam · Solo cuando publico algo nuevo · Cancela cuando quieras</p>
+
+    <div class="home-hero__stats" role="list">
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat__num">{{ site.posts | size }}<span>+</span></span>
+        <span class="hero-stat__label">Análisis publicados</span>
+      </div>
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat__num">100<span>%</span></span>
+        <span class="hero-stat__label">Investigado y verificado</span>
+      </div>
+      <div class="hero-stat" role="listitem">
+        <span class="hero-stat__num"><span>0</span></span>
+        <span class="hero-stat__label">Promesas de hacerte rico</span>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- ARTÍCULOS -->
