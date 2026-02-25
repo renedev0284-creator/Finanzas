@@ -750,7 +750,7 @@ main { flex: 1; }
 /* ============================================================
    BLOG — LISTA DE POSTS
    ============================================================ */
-.posts-list { display: flex; flex-direction: column; gap: var(--gap-3); }
+.posts-list { display: flex; flex-direction: column; gap: var(--gap-4); }
 
 .post-preview {
   display: grid;
@@ -891,6 +891,11 @@ main { flex: 1; }
 /* ============================================================
    PÁGINAS ESTÁTICAS
    ============================================================ */
+article.page {
+  padding-top: var(--gap-5);
+  padding-bottom: var(--gap-6);
+}
+
 .page-header {
   padding-bottom: var(--gap-4);
   margin-bottom: var(--gap-4);

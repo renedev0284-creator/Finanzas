@@ -8,7 +8,7 @@ permalink: /blog/
 <p class="text-muted">Explora todos nuestros artículos sobre finanzas, inversión y análisis de mercado.</p>
 
 {% if site.posts.size > 0 %}
-  <div class="posts-container">
+  <div class="posts-list">
     {% for post in site.posts %}
       {% include post-excerpt.html post=post %}
     {% endfor %}
