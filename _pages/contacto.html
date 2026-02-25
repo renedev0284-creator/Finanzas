@@ -1,0 +1,92 @@
+---
+layout: page
+title: Contacto
+description: Ponte en contacto con René Moya. Preguntas, feedback u oportunidades de colaboración.
+permalink: /contacto/
+---
+
+<div class="contact-page">
+
+  <div class="contact-intro">
+    <p>Me gustaría saber de ti. Preguntas sobre artículos, sugerencias de temas o propuestas de colaboración — escríbeme sin compromiso.</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <!-- FORMULARIO -->
+    <div class="contact-form-wrap">
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Asunto</label>
+          <select id="subject" name="subject" required>
+            <option value="">Elige un asunto...</option>
+            <option value="pregunta">Pregunta sobre un artículo</option>
+            <option value="sugerencia">Sugerencia de tema</option>
+            <option value="colaboracion">Oportunidad de colaboración</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" required rows="6" placeholder="¿En qué te puedo ayudar?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Enviar mensaje →</button>
+      </form>
+    </div>
+
+    <!-- SIDEBAR INFO -->
+    <aside class="contact-aside">
+
+      <div class="contact-card">
+        <h3 class="contact-card__title">Redes sociales</h3>
+        <ul class="contact-links">
+          <li>
+            <a href="https://twitter.com/rened_ev" target="_blank" rel="noopener" class="contact-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.631L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+              @rened_ev
+            </a>
+          </li>
+          <li>
+            <a href="mailto:renedev0284@gmail.com" class="contact-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              renedev0284@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-card">
+        <h3 class="contact-card__title">Preguntas frecuentes</h3>
+        <div class="contact-faq">
+          <div class="faq-item">
+            <p class="faq-q">¿Cuánto tardas en responder?</p>
+            <p class="faq-a">Generalmente en 24–48 horas hábiles.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">¿Puedo usar tu contenido?</p>
+            <p class="faq-a">Sí, siempre que enlaces al artículo original.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-q">¿Aceptas publicidad?</p>
+            <p class="faq-a">Solo de productos alineados con mis valores. Escríbeme.</p>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+</div>
