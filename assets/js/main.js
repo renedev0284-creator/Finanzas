@@ -70,6 +70,28 @@
     }
 
     /* ----------------------------------------------------------
+       COPIAR ENLACE
+    ---------------------------------------------------------- */
+    var copyBtn = document.getElementById('copy-url');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function () {
+        var url = copyBtn.getAttribute('data-url');
+        navigator.clipboard.writeText(url).then(function () {
+          var span = copyBtn.querySelector('span');
+          var original = span.textContent;
+          span.textContent = '¡Copiado!';
+          copyBtn.style.borderColor = '#16a34a';
+          copyBtn.style.color = '#16a34a';
+          setTimeout(function () {
+            span.textContent = original;
+            copyBtn.style.borderColor = '';
+            copyBtn.style.color = '';
+          }, 2000);
+        });
+      });
+    }
+
+    /* ----------------------------------------------------------
        BARRA DE PROGRESO DE LECTURA (solo en posts)
     ---------------------------------------------------------- */
     var progressBar = document.getElementById('reading-progress');
