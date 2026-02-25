@@ -1,67 +1,45 @@
 ---
 layout: page
 title: Sobre mí
-description: Conoce más sobre René Moya y su experiencia en finanzas e inversión
+description: Quién escribe Finanzas Reales y por qué
 permalink: /sobre-mi/
 ---
 
-## Hola, soy René Moya
+Hola, soy René.
 
-Bienvenido a mi blog de finanzas. Soy un apasionado por el análisis de mercados, la inversión y la educación financiera. A través de este blog, compartió mis conocimientos, análisis y estrategias para ayudarte a optimizar tus finanzas personales.
+No soy asesor financiero. No tengo un título en economía ni trabajo en Wall Street. Soy alguien que disfruta escribir, que tiene curiosidad por cómo funciona el dinero, y que se cansó de leer contenido financiero lleno de jerga o de promesas vacías.
 
-## Mi Experiencia
+## Por qué este blog
 
-Con más de [X años] en el mundo de las finanzas, he tenido la oportunidad de estudiar diversos mercados, aprender de expertos en la industria y desarrollar mis propias estrategias de inversión. Mi enfoque siempre ha sido:
+El tema de las finanzas personales me llamó la atención porque casi nadie nos enseña a manejarlo. Crecemos sin saber qué es una tasa de interés compuesto, cómo funciona una inversión o por qué es importante tener un fondo de emergencia.
 
-- **Educación accesible**: Explicar conceptos financieros complejos de forma clara
-- **Análisis fundamentado**: Basarme en datos reales y análisis técnico riguroso
-- **Contenido práctico**: Compartir estrategias que puedas aplicar en tu cartera
-- **Transparencia**: Ser honesto sobre riesgos y limitaciones
+Decidí empezar a investigar por mi cuenta. Y cuando uno aprende algo, la mejor forma de consolidarlo es explicarlo.
 
-## ¿Qué encontrarás en este blog?
+Eso es este blog: mis notas de investigación convertidas en artículos. Cada vez que escribo sobre un tema, primero lo estudio, contrasto fuentes, leo libros y leo a personas que saben más que yo. Luego lo pongo en palabras que yo mismo entendería.
 
-En este espacio, documentó:
+## Lo que encontrarás aquí
 
-1. **Análisis de mercado**: Análisis técnico y fundamental de acciones, índices y criptomonedas
-2. **Educación financiera**: Tutoriales y guías sobre inversión, trading y finanzas personales
-3. **Estrategias**: Métodos y tácticas que he probado personalmente
-4. **Noticias e insights**: Mi perspectiva sobre eventos económicos relevantes
-5. **Herramientas y recursos**: Recommendations de plataformas, libros y herramientas útiles
+- Artículos sobre **finanzas personales**: presupuesto, deudas, ahorro, fondos de emergencia
+- Explicaciones sobre **inversión**: cómo funcionan las acciones, bonos, ETFs y otras herramientas
+- **Análisis de conceptos** del mercado, escritos de forma accesible
+- Mis reflexiones y aprendizajes mientras sigo estudiando el tema
 
-## Disclaimer Importante
+No vendo cursos. No tengo productos financieros. No gano comisión por recomendarte nada.
 
-**El contenido de este blog es de carácter educativo y no debe ser considerado como asesoramiento financiero profesional.**
+## Lo que no encontrarás
 
-Siempre:
-- Invierte el dinero que puedas permitirte perder
-- Realiza tu propia investigación antes de tomar decisiones
-- Considera consultar con un asesor financiero certificado
-- Entiende los riesgos asociados a cualquier inversión
+- Consejos para hacerte rico rápido
+- Predicciones de mercado con certeza falsa
+- Asesoría financiera profesional (para eso, busca un profesional certificado)
 
-Los mercados son impredecibles y las pérdidas son posibles. Yo no soy responsable de las decisiones que tomes basándote en este contenido.
+## Una nota importante
 
-## Conecta Conmigo
+Todo lo que escribo es de carácter **educativo e informativo**. Investigo con cuidado, pero me puedo equivocar. Antes de tomar cualquier decisión financiera, contrasta la información con otras fuentes y, si es una decisión importante, consulta a un profesional.
 
-Me encantaría escuchar tus opiniones, preguntas y feedback. Puedes:
+## Conectemos
 
-- **Comentar en los artículos**: Deja tus preguntas en la sección de comentarios
-- **Correo**: Envíame un email a través del formulario de [contacto](/contacto/)
-- **Redes sociales**: Sígueme en:
-  - [Twitter](https://twitter.com)
-  - [LinkedIn](https://linkedin.com)
-  - [YouTube](https://youtube.com) (próximamente)
-
-## Recursos Recomendados
-
-Algunos de mis libros y recursos favoritos sobre finanzas:
-
-- "The Intelligent Investor" - Benjamin Graham
-- "A Random Walk Down Wall Street" - Burton Malkiel
-- "The Market Wizards" - Jack Schwager
-- "Principles" - Ray Dalio
+Si tienes preguntas, correcciones o quieres sugerir un tema, me encantaría escucharte. Puedes escribirme por la página de [contacto](/contacto/) o en Twitter [@rened_ev](https://twitter.com/rened_ev).
 
 ---
 
-Gracias por visitarme. Espero que encuentres valor en el contenido que comparto y que te ayude a tomar mejores decisiones financieras.
-
-**¡Vamos a dominar nuestras finanzas juntos!**
+> "El primer paso para mejorar tu situación financiera es entenderla."

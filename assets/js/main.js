@@ -1,89 +1,89 @@
-/**
- * Blog de Finanzas - Main JavaScript
- */
-
-(function() {
+/* ============================================================
+   FINANZAS REALES — main.js
+   ============================================================ */
+(function () {
   'use strict';
 
-  // Smooth scroll behavior
-  document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu handling
-    const navToggle = document.getElementById('nav-toggle');
+  /* ----------------------------------------------------------
+     DARK / LIGHT MODE
+  ---------------------------------------------------------- */
+  var STORAGE_KEY = 'fr-theme';
+  var html = document.documentElement;
 
-    if (navToggle) {
-      navToggle.addEventListener('change', function() {
-        document.body.style.overflow = this.checked ? 'hidden' : 'auto';
+  function applyTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+  }
+
+  function getPreferredTheme() {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  // Aplica tema antes del DOMContentLoaded para evitar parpadeo
+  applyTheme(getPreferredTheme());
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    /* Toggle */
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var current = html.getAttribute('data-theme') || 'light';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
       });
     }
 
-    // Close mobile menu on link click
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        if (navToggle) {
-          navToggle.checked = false;
-          document.body.style.overflow = 'auto';
-        }
+    /* ----------------------------------------------------------
+       MENÚ MÓVIL
+    ---------------------------------------------------------- */
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks  = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (navToggle) navToggle.checked = false;
       });
     });
 
-    // Lazy load images
+    /* ----------------------------------------------------------
+       LAZY LOADING
+    ---------------------------------------------------------- */
     if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+      var imgObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.classList.add('loaded');
-            imageObserver.unobserve(img);
+            var img = entry.target;
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+              img.removeAttribute('data-src');
+            }
+            imgObserver.unobserve(img);
           }
         });
-      });
+      }, { rootMargin: '200px' });
 
-      document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
+      document.querySelectorAll('img[data-src]').forEach(function (img) {
+        imgObserver.observe(img);
       });
     }
 
-    // Dark mode toggle (optional)
-    const darkModeButton = document.querySelector('.dark-mode-toggle');
-    if (darkModeButton) {
-      darkModeButton.addEventListener('click', toggleDarkMode);
-
-      // Check for saved preference
-      const prefersDark = localStorage.getItem('darkMode');
-      if (prefersDark === 'true') {
-        document.documentElement.style.colorScheme = 'dark';
-      }
+    /* ----------------------------------------------------------
+       BARRA DE PROGRESO DE LECTURA (solo en posts)
+    ---------------------------------------------------------- */
+    var progressBar = document.getElementById('reading-progress');
+    if (progressBar) {
+      window.addEventListener('scroll', function () {
+        var article = document.querySelector('.post-content');
+        if (!article) return;
+        var total   = article.offsetTop + article.offsetHeight - window.innerHeight;
+        var current = window.scrollY - article.offsetTop;
+        var pct     = Math.min(Math.max((current / total) * 100, 0), 100);
+        progressBar.style.width = pct + '%';
+      }, { passive: true });
     }
 
-    // Syntax highlighting for code blocks
-    document.querySelectorAll('pre code').forEach(block => {
-      block.classList.add('hljs');
-    });
   });
 
-  function toggleDarkMode() {
-    const isDark = document.documentElement.style.colorScheme === 'dark';
-    document.documentElement.style.colorScheme = isDark ? 'light' : 'dark';
-    localStorage.setItem('darkMode', !isDark);
-  }
-
-  // Track page views with analytics if available
-  window.trackPageView = function() {
-    if (typeof gtag !== 'undefined') {
-      gtag('config', 'GA_MEASUREMENT_ID', {
-        'page_path': window.location.pathname
-      });
-    }
-  };
-
-  // Performance monitoring
-  if (window.performance && window.performance.timing) {
-    window.addEventListener('load', function() {
-      const perfData = window.performance.timing;
-      const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-      console.log('Page load time: ' + pageLoadTime + 'ms');
-    });
-  }
-})();
+}());
