@@ -5,69 +5,91 @@ description: Blog sobre finanzas personales, inversión y mercados. Escrito por 
 permalink: /
 ---
 
-<section class="hero">
-  <span class="hero-eyebrow">Nuevo artículo cada semana</span>
-  <h1>Finanzas sin humo,<br>escritas con honestidad</h1>
-  <p>Investigo, aprendo y escribo sobre dinero, inversión y mercados. Sin fórmulas mágicas ni promesas de hacerte rico rápido.</p>
-  <div class="hero-actions">
-    <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">Leer el blog →</a>
-    <a href="{{ '/sobre-mi/' | relative_url }}" class="btn btn-ghost">Quién escribe</a>
-  </div>
-</section>
+<!-- HERO CENTRADO -->
+<section class="home-hero">
+  <p class="home-hero__eyebrow">Nuevo artículo cada semana</p>
+  <h1 class="home-hero__title">Finanzas escritas<br>con honestidad</h1>
+  <p class="home-hero__sub">Investigo, aprendo y escribo sobre dinero, inversión y mercados.<br>Sin fórmulas mágicas ni promesas de hacerte rico rápido.</p>
 
-<section>
-  <div class="section-header">
-    <h2 class="section-title">Artículos recientes</h2>
-    <a href="{{ '/blog/' | relative_url }}" class="section-link">Ver todos →</a>
-  </div>
-
-  {% if site.posts.size > 0 %}
-    <div class="posts-grid">
-      {% for post in site.posts limit: 3 %}
-        <article class="post-card" itemscope itemtype="https://schema.org/BlogPosting">
-          {% if post.image %}
-            <div class="post-card-image">
-              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" itemprop="image">
-            </div>
-          {% endif %}
-          <div class="post-card-body">
-            <div class="post-card-meta">
-              <time class="post-card-date" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
-                {{ post.date | date: "%d %b %Y" }}
-              </time>
-              {% if post.categories.first %}
-                <span class="badge">{{ post.categories.first }}</span>
-              {% endif %}
-            </div>
-            <h3 class="post-card-title" itemprop="headline">
-              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </h3>
-            <p class="post-card-excerpt" itemprop="description">
-              {{ post.excerpt | strip_html | truncate: 150 }}
-            </p>
-            <div class="post-card-footer">
-              <div class="tags-row">
-                {% for tag in post.tags limit: 2 %}
-                  <span class="tag">#{{ tag }}</span>
-                {% endfor %}
-              </div>
-              <a href="{{ post.url | relative_url }}" class="read-more">Leer →</a>
-            </div>
-          </div>
-        </article>
-      {% endfor %}
-    </div>
-  {% else %}
-    <p class="text-muted">Pronto habrá artículos aquí. Vuelve en unos días.</p>
-  {% endif %}
-</section>
-
-<section class="newsletter-section">
-  <h2>Recibe los artículos en tu correo</h2>
-  <p>Sin spam. Solo un email cuando publique algo nuevo.</p>
-  <form class="newsletter-form" action="#" method="POST">
-    <input type="email" name="email" placeholder="tu@correo.com" required>
-    <button type="submit" class="btn btn-primary">Suscribirme</button>
+  <form class="home-hero__form" action="#" method="POST">
+    <input type="email" name="email" placeholder="tu@correo.com" required aria-label="Tu correo electrónico">
+    <button type="submit" class="btn btn-primary">Suscribirme gratis</button>
   </form>
-  <p class="newsletter-disclaimer">Puedes darte de baja en cualquier momento.</p>
+  <p class="home-hero__disclaimer">Sin spam. Solo un email cuando publique algo nuevo.</p>
 </section>
+
+<!-- ARTÍCULOS -->
+{% if site.posts.size > 0 %}
+
+  <!-- POST DESTACADO (el más reciente) -->
+  {% assign featured = site.posts.first %}
+  <section class="home-featured">
+    <div class="home-featured__inner">
+      {% if featured.image %}
+        <div class="home-featured__img">
+          <a href="{{ featured.url | relative_url }}">
+            <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}" loading="lazy">
+          </a>
+        </div>
+      {% endif %}
+      <div class="home-featured__body">
+        <span class="eyebrow-label">Último artículo</span>
+        {% if featured.categories.first %}
+          <span class="badge">{{ featured.categories.first }}</span>
+        {% endif %}
+        <h2 class="home-featured__title">
+          <a href="{{ featured.url | relative_url }}">{{ featured.title }}</a>
+        </h2>
+        <p class="home-featured__excerpt">{{ featured.excerpt | strip_html | truncate: 200 }}</p>
+        <div class="home-featured__meta">
+          <time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%d %b %Y" }}</time>
+          <span class="meta-sep">·</span>
+          <span>{{ featured.content | number_of_words | divided_by: 200 | plus: 1 }} min de lectura</span>
+        </div>
+        <a href="{{ featured.url | relative_url }}" class="btn btn-primary">Leer artículo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID DE ARTÍCULOS ANTERIORES -->
+  {% if site.posts.size > 1 %}
+    <section class="home-posts">
+      <div class="home-posts__header">
+        <h2 class="home-posts__title">Más artículos</h2>
+        <a href="{{ '/blog/' | relative_url }}" class="home-posts__link">Ver todos →</a>
+      </div>
+      <div class="home-posts__grid">
+        {% for post in site.posts offset: 1 limit: 4 %}
+          <article class="post-card">
+            {% if post.image %}
+              <div class="post-card__img">
+                <a href="{{ post.url | relative_url }}" tabindex="-1">
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                </a>
+              </div>
+            {% endif %}
+            <div class="post-card__body">
+              <div class="post-card__meta">
+                {% if post.categories.first %}<span class="badge">{{ post.categories.first }}</span>{% endif %}
+                <time>{{ post.date | date: "%d %b %Y" }}</time>
+              </div>
+              <h3 class="post-card__title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h3>
+              <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+              <div class="post-card__footer">
+                <span class="post-card__readtime">{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min</span>
+                <a href="{{ post.url | relative_url }}" class="post-card__link">Leer →</a>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+{% else %}
+  <div class="empty-state">
+    <p>Pronto habrá artículos aquí. Vuelve en unos días.</p>
+  </div>
+{% endif %}
