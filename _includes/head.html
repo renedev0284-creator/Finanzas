@@ -1,45 +1,27 @@
-<!-- Meta tags for SEO -->
-<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description | truncate: 160 }}{% endif %}" >
-<meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', ' }}{% else %}finanzas, inversión, mercado, análisis{% endif %}">
+<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+<!-- SEO plugin (genera og, twitter cards, canonical) -->
+{% seo %}
+
+<!-- Meta adicionales -->
+<meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', ' }}{% else %}finanzas personales, inversión, análisis financiero{% endif %}">
 <meta name="author" content="{{ page.author | default: site.author.name }}">
-
-<!-- Open Graph / Facebook Meta Tags -->
-<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-<meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description | truncate: 160 }}{% endif %}">
-<meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/og-image.jpg' | absolute_url }}{% endif %}">
-<meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:locale" content="{{ site.locale }}">
-
-<!-- Twitter Meta Tags -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="{{ page.url | absolute_url }}">
-<meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-<meta property="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description | truncate: 160 }}{% endif %}">
-<meta property="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/og-image.jpg' | absolute_url }}{% endif %}">
-{% if site.author.twitter %}<meta property="twitter:creator" content="@{{ site.author.twitter }}">{% endif %}
-
-<!-- Canonical URL -->
-<link rel="canonical" href="{{ page.url | absolute_url }}">
-
-<!-- Standard Meta Tags -->
 <meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="revisit-after" content="7 days">
 <meta name="language" content="es">
+<meta name="theme-color" content="#1a56db">
 
-<!-- Theme Color -->
-<meta name="theme-color" content="#1e90ff">
-<meta name="msapplication-TileColor" content="#1e90ff">
-
-<!-- Icons -->
+<!-- Favicon -->
 <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
 
-<!-- Sitemap and RSS -->
+<!-- Sitemap -->
 <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | relative_url }}">
 
-<!-- SEO Plugin by Jekyll -->
-{% seo %}
+<!-- Aplica tema antes del render para evitar flash -->
+<script>
+  (function(){
+    var t = localStorage.getItem('fr-theme');
+    if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>

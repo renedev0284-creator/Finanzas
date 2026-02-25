@@ -37,7 +37,7 @@ timezone: America/Mexico_City
 # ------------------------------------
 # BUILD
 # ------------------------------------
-theme: minima
+# theme: minima  ← desactivado para usar diseño propio
 plugins:
   - jekyll-feed
   - jekyll-sitemap
